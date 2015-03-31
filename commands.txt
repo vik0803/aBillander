@@ -1,0 +1,11 @@
+// https://gist.github.com/betawax/4734704
+// http://www.develbook.com/2015/02/step-by-step-how-to-install-laravel-5.html
+
+composer create-project laravel/laravel ./ --prefer-dist
+
+o bien:
+composer create-project laravel/laravel . --prefer-dist
+
+chmod -R 775 /opt/lampp/htdocs/aBillander5/storage
+
+???? -> $ php artisan app:name Horsefly
