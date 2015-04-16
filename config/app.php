@@ -145,6 +145,14 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+
+		/*
+		 * aBillander Service Providers...
+		 */
+		'Illuminate\Html\HtmlServiceProvider',
+		'App\Providers\HelperServiceProvider',
+		'App\Providers\ViewComposerServiceProvider',
+
 	],
 
 	/*
@@ -192,6 +200,9 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
+
+		'HTML'      => 'Illuminate\Html\HtmlFacade',
+    	'Form'      => 'Illuminate\Html\FormFacade',
 
 	],
 

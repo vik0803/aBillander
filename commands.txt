@@ -7,5 +7,123 @@ o bien:
 composer create-project laravel/laravel . --prefer-dist
 
 chmod -R 775 /opt/lampp/htdocs/aBillander5/storage
+o chmod -R 777 storage
 
 ???? -> $ php artisan app:name Horsefly
+
+
+
+ERROR:  Call to undefined method Illuminate\Foundat  
+  ion\Application::getCachedCompilePath()
+
+see: http://laravel.io/forum/03-24-2015-call-to-undefined-method-illuminatefoundationapplicationgetcachedcompilepath?page=1
+also: https://laracasts.com/discuss/channels/general-discussion/runtimeexception-on-fresh-install?page=1
+
+Delete the vendor/compiled.php   con  $ php artisan clear-compiled and run composer again
+
+In some cases you have to also delete the storage/framework/compiled.php
+
+***********************************
+
+
+### To seed your database, you may use the db:seed command on the Artisan CLI:
+
+composer dump-autoload
+
+php artisan db:seed
+
+By default, the db:seed command runs the DatabaseSeeder class, which may be used to call other seed classes. However, you may use the --class option to specify a specific seeder class to run individually:
+
+php artisan db:seed --class=ConfigurationTableSeeder
+
+You may also seed your database using the migrate:refresh command, which will also rollback and re-run all of your migrations:
+
+php artisan migrate:refresh --seed
+
+***********************************
+
+// https://sheepy85.wordpress.com/2014/09/25/laravel-5-authentication-users-migration-seed/
+
+ php artisan migrate
+
+Migrated: 2014_10_12_000000_create_users_table
+Migrated: 2014_10_12_100000_create_password_resets_table
+Migrated: 2015_01_04_072748_create_languages_table
+
+composer dump-autoload
+
+> php artisan optimize   ?????
+
+josesan@josesan-K54LY:/opt/lampp/htdocs/aBillander5$ composer dump-autoload
+Generating autoload files
+josesan@josesan-K54LY:/opt/lampp/htdocs/aBillander5$ php artisan optimize
+Generating optimized class loader
+
+php artisan db:seed --class=LanguagesTableSeeder
+
+php artisan db:seed --class=UsersTableSeeder
+
+php artisan db:seed --class=CurrenciesTableSeeder
+
+sudo php artisan db:seed --class=CompanyTableSeeder
+
+
+
+***********************************
+
+php artisan make:model Project
+php artisan make:model Task
+
+$ php artisan tinker
+
+php artisan make:controller ProjectsController
+php artisan make:controller TasksController
+
+php artisan route:list
+
+***********************************
+
+php artisan make:controller --plain AboutController
+
+***********************************
+
+## http://www.richardbagshaw.co.uk/laravel-5-middleware/
+
+php artisan make:middleware SetContextMiddleware 
+
+php artisan make:middleware RedirectIfNotAdmin
+
+## see also: 
+http://www.gufran.me/post/middleware-in-laravel/
+http://laravel-recipes.com/recipes/114/creating-a-simple-middleware-class
+https://laracasts.com/discuss/channels/tips/example-on-how-to-use-multiple-locales-in-your-laravel-5-website
+
+Validation
+http://www.smartcode.ch/blog/laravel-5-unique-form-request-validation-update-model-binding/
+
+http://stackoverflow.com/questions/28662283/validating-a-unique-slug-on-update-in-laravel-5
+
+http://stackoverflow.com/questions/28793716/how-add-custom-validation-rules-when-using-form-request-validation-in-laravel-5
+
+***********************************
+
+Helpers
+http://stackoverflow.com/questions/28290332/best-practices-for-custom-helpers-on-laravel-5
+
+php artisan make:provider HelperServiceProvider
+
+
+***********************************
+
+
+php artisan make:migration create_contact_messages_table --create="contact_messages" 
+
+php artisan make:controller ContactMessagesController
+
+php artisan make:model ContactMessage
+
+
+***********************************
+
+
+

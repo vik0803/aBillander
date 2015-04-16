@@ -1,48 +1,26 @@
-<html>
-	<head>
-		<title>Laravel</title>
-		
-		<link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+@extends('layouts.master')
 
-		<style>
-			body {
-				margin: 0;
-				padding: 0;
-				width: 100%;
-				height: 100%;
-				color: #B0BEC5;
-				display: table;
-				font-weight: 100;
-				font-family: 'Lato';
-			}
+@section('title') aBillander @parent @stop
 
-			.container {
-				text-align: center;
-				display: table-cell;
-				vertical-align: middle;
-			}
 
-			.content {
-				text-align: center;
-				display: inline-block;
-			}
+@section('content')
 
-			.title {
-				font-size: 96px;
-				margin-bottom: 40px;
-			}
+<div class="page-header">
+    <h2>
+        <!-- Start here! -->
+    </h2>        
+</div>
 
-			.quote {
-				font-size: 24px;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="container">
-			<div class="content">
-				<div class="title">Laravel 5</div>
-				<div class="quote">{{ Inspiring::quote() }}</div>
-			</div>
-		</div>
-	</body>
-</html>
+<div class="jumbotron">
+<img src="{{URL::to('/img/push_Billander.jpg')}}" title='"Don’t ever fight with Lisbeth Salander. Her attitude towards the rest of the world is that if someone threatens her with a gun, she’ll get a bigger gun.”
+
+― Stieg Larsson, The Girl Who Played with Fire'
+                    class="center-block"
+                    style=" xborder: 2px solid black;
+                            border-radius: 18px;
+                            -moz-border-radius: 18px;
+                            -khtml-border-radius: 18px;
+                            -webkit-border-radius: 18px;">
+</div>
+
+@stop
