@@ -8,68 +8,68 @@
                 <span class="icon-bar"></span>
             </button>
             @if( Auth::check() )
-                <a href="{{{ URL::to( (Auth::user()->home_page ? Auth::user()->home_page : '/') ) }}}" class="navbar-brand">{!! App\Configuration::get('COMPANY_BO_LOGO') !!}</a>
+                <a href="{{ URL::to( (Auth::user()->home_page ? Auth::user()->home_page : '/') ) }}" class="navbar-brand">{!! App\Configuration::get('COMPANY_BO_LOGO') !!}</a>
             @else
-                <a href="{{{ URL::to('/') }}}" class="navbar-brand"><span style="color:#dddddd"><i class="fa fa-bolt"></i> Lara<span style="color:#fff">Billander</span></span></a>
+                <a href="{{ URL::to('/') }}" class="navbar-brand"><span style="color:#dddddd"><i class="fa fa-bolt"></i> Lara<span style="color:#fff">Billander</span></span></a>
             @endif
         </div>
         <nav class="collapse navbar-collapse" role="navigation">
             <ul class="nav navbar-nav navbar-right">
 
                 @if( Auth::check() )
-                <!-- li><a href="{{{ URL::to('clients') }}}"><i class="fa fa-dashboard"></i> Sistema</a></li -->
+                <!-- li><a href="{{ URL::to('clients') }}"><i class="fa fa-dashboard"></i> Sistema</a></li -->
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cogs"></i> {{l('Basic Data', [], 'layouts')}} <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                          <li>
-                            <a href="{{{ URL::to('currencies') }}}">
+                            <a href="{{ URL::to('currencies') }}">
                                  {{l('Currencies', [], 'layouts')}}
                             </a>
                         </li>
                          <li>
-                            <a href="{{{ URL::to('paymentmethods') }}}">
-                                 Formas de Pago
+                            <a href="{{ URL::to('paymentmethods') }}">
+                                 {{l('Payment Methods', [], 'layouts')}}
                             </a>
                         </li>
                          <li>
-                            <a href="{{{ URL::to('taxes') }}}">
-                                 Impuestos
+                            <a href="{{ URL::to('taxes') }}">
+                                 {{l('Taxes', [], 'layouts')}}
                             </a>
                         </li>
                          <!-- li>
-                            <a href="{{{ URL::to('account') }}}">
+                            <a href="{{ URL::to('account') }}">
                                  Bancos
                             </a>
                         </li>
                          <li>
-                            <a href="{{{ URL::to('account') }}}">
+                            <a href="{{ URL::to('account') }}">
                                  Cuentas Remesas
                             </a>
                         </li -->
                         <li class="divider"></li>
                          <li>
-                            <a href="{{{ URL::to('categories') }}}">
-                                 Categorías de Productos
+                            <a href="{{ URL::to('categories') }}">
+                                 {{l('Product Categories', [], 'layouts')}}
                             </a>
                         </li>
                          <li>
-                            <a href="{{{ URL::to('customergroups') }}}">
-                                 Grupos de Clientes
+                            <a href="{{ URL::to('customergroups') }}">
+                                 {{l('Customer Groups', [], 'layouts')}}
                             </a>
                         </li>
                         <li class="divider"></li>
                          <!-- li>
-                            <a href="{{{ URL::to('account') }}}">
+                            <a href="{{ URL::to('account') }}">
                                  Países
                             </a>
                         </li>
                          <li>
-                            <a href="{{{ URL::to('account') }}}">
+                            <a href="{{ URL::to('account') }}">
                                  Provincias
                             </a>
                         </li>
                          <li>
-                            <a href="{{{ URL::to('account') }}}">
+                            <a href="{{ URL::to('account') }}">
                                  Zonas
                             </a>
                         </li -->
@@ -77,7 +77,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-dashboard"></i> Sistema <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-dashboard"></i> {{l('System', [], 'layouts')}} <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <!-- li class="disabled">
                             <a href="" onClick="return false;">
@@ -86,69 +86,69 @@
                         </li>
                         <li class="divider"></li -->
                          <li>
-                            <a href="{{{ URL::to('customers') }}}">
-                                 Clientes
+                            <a href="{{ URL::to('customers') }}">
+                                 {{l('Customers', [], 'layouts')}}
                             </a>
                         </li>
                          <li>
-                            <a href="{{{ URL::to('salesreps') }}}">
-                                 Agentes
+                            <a href="{{ URL::to('salesreps') }}">
+                                 {{l('Sales Representatives', [], 'layouts')}}
                             </a>
                         </li>
                          <!-- li>
-                            <a href="{{{ URL::to('account') }}}">
+                            <a href="{{ URL::to('account') }}">
                                  Proveedores
                             </a>
                         </li -->
                          <!-- li>
-                            <a href="{{{ URL::to('carriers') }}}">
+                            <a href="{{ URL::to('carriers') }}">
                                  Transportistas
                             </a>
                         </li>
                          <li>
-                            <a href="{{{ URL::to('manufacturers') }}}">
+                            <a href="{{ URL::to('manufacturers') }}">
                                  Fabricantes
                             </a>
                         </li -->
                         <li class="divider"></li>
                          <li>
-                            <a href="{{{ URL::to('warehouses') }}}">
-                                 Almacenes
+                            <a href="{{ URL::to('warehouses') }}">
+                                 {{l('Warehouses', [], 'layouts')}}
                             </a>
                         </li>
-                         <li>
-                            <a href="{{{ URL::to('pricelists') }}}">
+                         <!-- li>
+                            <a href="{{ URL::to('pricelists') }}">
                                  Tarifas
                             </a>
-                        </li>
+                        </li -->
                          <li>
-                            <a href="{{{ URL::to('attributegroups') }}}">
-                                 Atributos de Productos
+                            <a href="{{ URL::to('optiongroups') }}">
+                                 {{l('Product Options', [], 'layouts')}}
                             </a>
                         </li>
                          <li>
-                            <a href="{{{ URL::to('products') }}}">
-                                 Productos
+                            <a href="{{ URL::to('products') }}">
+                                 {{l('Products', [], 'layouts')}}
                             </a>
                         </li>
                         <li class="divider"></li>
                     </ul>
                 </li>
-                <!-- li><a href="{{{ URL::to('clients') }}}"><i class="fa fa-shopping-cart"></i> Almacén</a></li -->
+                <!-- li><a href="{{ URL::to('clients') }}"><i class="fa fa-shopping-cart"></i> Almacén</a></li -->
 
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-shopping-cart"></i> Almacén <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-shopping-cart"></i> {{l('Warehouse', [], 'layouts')}} <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li class="divider"></li>
                          <li>
-                            <a href="{{{ URL::to('stockmovements') }}}">
-                                 Movimientos de Almacén
+                            <a href="{{ URL::to('stockmovements') }}">
+                                 {{l('Stock Movements', [], 'layouts')}}
                             </a>
                         </li>
                          <li>
-                            <a href="{{{ URL::to('stockmovements') }}}">
-                                 Regularización de Almacén
+                            <a href="{{ URL::to('stockmovements') }}">
+                                 {{l('Inventory Adjustments', [], 'layouts')}}
                             </a>
                         </li>
                         <li class="divider"></li>
@@ -157,11 +157,11 @@
 
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-file-text"></i> Facturación <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-file-text"></i> {{l('Invoicing', [], 'layouts')}} <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                          <li>
-                            <a href="{{{ URL::to('customerinvoices') }}}">
-                                 Facturas
+                            <a href="{{ URL::to('customerinvoices') }}">
+                                 {{l('Customer Invoices', [], 'layouts')}}
                             </a>
                         </li>
                         <li class="divider"></li>
@@ -170,14 +170,14 @@
                 </li>
 
 
-                <li><a href="{{{ URL::to('clients') }}}"><i class="fa fa-bar-chart-o"></i> Informes</a></li>
+                <li><a href="{{ URL::to('clients') }}"><i class="fa fa-bar-chart-o"></i> {{l('Reports', [], 'layouts')}}</a></li>
 
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ Auth::user()->getFullName() }} <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                          <li>
-                            <a href="{{{ URL::to('account') }}}">
+                            <a href="{{ URL::to('account') }}">
                                  {{l('Documentation', [], 'layouts')}}
                             </a>
                         </li>
@@ -210,37 +210,37 @@
                         @if ( Auth::user()->isAdmin() )
                         <li class="divider"></li>
                          <li>
-                            <a href="{{{ URL::to('companies') }}}">
+                            <a href="{{ URL::to('companies') }}">
                                  {{l('Company', [], 'layouts')}}
                             </a>
                         </li>
                          <li>
-                            <a href="{{{ URL::to('configurations') }}}">
+                            <a href="{{ URL::to('configurations') }}">
                                  {{l('Configuration - All keys', [], 'layouts')}}
                             </a>
                         </li>
                          <li>
-                            <a href="{{{ URL::to('configurationkeys') }}}">
+                            <a href="{{ URL::to('configurationkeys') }}">
                                  {{l('Configuration', [], 'layouts')}}
                             </a>
                         </li>
                          <li>
-                            <a href="{{{ URL::to('languages') }}}">
+                            <a href="{{ URL::to('languages') }}">
                                  {{l('Languages', [], 'layouts')}}
                             </a>
                         </li>
                          <li>
-                            <a href="{{{ URL::to('sequences') }}}">
+                            <a href="{{ URL::to('sequences') }}">
                                  {{l('Document sequences', [], 'layouts')}}
                             </a>
                         </li>
                          <li>
-                            <a href="{{{ URL::to('templates') }}}">
+                            <a href="{{ URL::to('templates') }}">
                                  {{l('Document templates', [], 'layouts')}}
                             </a>
                         </li>
                          <li>
-                            <a href="{{{ URL::to('users') }}}">
+                            <a href="{{ URL::to('users') }}">
                                  {{l('Users', [], 'layouts')}}
                             </a>
                         </li>
@@ -248,7 +248,7 @@
                         <li class="divider"></li>
 
                         <li>
-                            <a href="{{{ URL::to('auth/logout') }}}">
+                            <a href="{{ URL::to('auth/logout') }}">
                                 <i class="fa fa-power-off"></i> {{l('Logout', [], 'layouts')}}
                             </a>
                         </li>
@@ -257,7 +257,7 @@
                 @else
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <a href="{{{ URL::to('auth/login') }}}">
+                <a href="{{ URL::to('auth/login') }}">
                     <button class="btn btn-default navbar-btn">
                         <i class="fa fa-user"></i> {{l('Login', [], 'layouts')}} 
                     </button>

@@ -28,7 +28,7 @@ class CurrenciesController extends Controller {
 	{
 		$currencies = $this->currency->orderBy('id', 'asc')->get();
 
-        return View::make('currencies.index', compact('currencies'));
+        return view('currencies.index', compact('currencies'));
 	}
 
 	/**

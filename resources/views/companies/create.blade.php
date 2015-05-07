@@ -141,7 +141,7 @@
             <div class="col-md-2">
                  <div class="form-group {{{ $errors->has('currency_id') ? 'has-error' : '' }}}">
                     Divisa:
-                    {{ Form::select('currency_id', array('0' => '-- Seleccione--') + $currencyList, Input::old('currency_id', isset($company) ? $company->currency_id : 0), array('class' => 'form-control')) }}
+                    {{ Form::select('currency_id', array('0' => l('-- Please, select --', [], 'layouts')) + $currencyList, Input::old('currency_id', isset($company) ? $company->currency_id : 0), array('class' => 'form-control')) }}
                     {{ $errors->first('currency_id', '<span class="help-block">:message</span>') }}
                  </div>
             </div>

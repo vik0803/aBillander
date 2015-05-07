@@ -17,12 +17,21 @@ class Address extends Model {
                           ];
 
     public static $rules = array(
-    	'alias'      => array('required', 'min:2', 'max:32'),
-//    	'model_name' => array('required', 'min:2', 'max:64' ),
-//		'owner_id'   => array('numeric', 'min:0'),
+        'alias'      => 'required|min:2|max:32',
+        'address1'   => 'required|min:2|max:128',
+        );
 
-        'address1'   => array('required', 'min:2', 'max:128'),
-    	);
+    public static function related_rules($rel = 'address')
+    {
+        // https://laracasts.com/discuss/channels/requests/laravel-5-validation-request-how-to-handle-validation-on-update/?page=1
+        $rules = array();
+        
+        foreach ( self::$rules as $key => $rule) 
+        {
+            $rules[ $rel.'.'.$key ] = $rule;
+        }
+        return $rules;
+    }
 
 
     /*
@@ -47,5 +56,10 @@ class Address extends Model {
 
         return $this->belongsTo('App\Customer', 'owner_id')->where('model_name', '=', 'Customer');
     }
-	
+    
+    public function warehouse()
+    {
+        return $this->belongsTo('App\Warehouse', 'owner_id')->where('model_name', '=', 'Warehouse');
+    }
+    
 }

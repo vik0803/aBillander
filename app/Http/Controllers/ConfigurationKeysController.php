@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
+use App\Configuration as Configuration;
 use App\Currency as Currency;
 use View;
 

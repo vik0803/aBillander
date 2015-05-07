@@ -98,4 +98,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->belongsTo('App\Language');
     }
 
+    
+    public function stockmovements()
+    {
+        return $this->hasMany('App\StockMovement');
+    }
 }

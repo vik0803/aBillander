@@ -11,6 +11,7 @@ use Auth;
 use App\User as User;
 use Config, App;
 use Request;
+// use \Illuminate\Support\Str;
 
 class SetContextMiddleware {
 
@@ -55,10 +56,39 @@ class SetContextMiddleware {
 		Context::getContext()->currency   = $company->currency;
 
 		Context::getContext()->controller = $request->segment(1);
+		if ($request->segment(3) == 'attributes') Context::getContext()->controller = $request->segment(3);
 		Context::getContext()->action     = NULL; //$action; 
+/* * /
+		// echo_r($request->route()->getAction());
+		// http://laravel.io/forum/10-15-2014-laravel-5-passing-parameters-to-middleware-handlers
+		// http://www.codeheaps.com/php-programming/laravel-5-middleware-stack-decoded/
+		// http://blog.elliothesp.co.uk/coding/passing-parameters-middleware-laravel-5/
+		// https://gist.github.com/dwightwatson/6200599
+		// http://stackoverflow.com/questions/26840278/laravel-5-how-to-get-route-action-name
+		    $action = $request->route()->getAction();
+		    $routeArray = Str::parseCallback($action['controller'], null);
 
+		    if (last($routeArray) != null) {
+		        // Remove 'controller' from the controller name.
+		        $controller = str_replace('Controller', '', class_basename(head($routeArray)));
 
-		// Changing Timezone At Runtime
+		        // Take out the method from the action.
+		        $action = str_replace(['get', 'post', 'patch', 'put', 'delete'], '', last($routeArray));
+
+		        // return Str::slug($controller . '-' . $action);
+		    } else {
+		        // return 'closure';
+		        $controller = 'closure';
+		        $action = '';
+		    }
+		// gist ENDS
+
+		Context::getContext()->controller = $controller;
+		Context::getContext()->action     = $action; 
+		echo Str::slug($controller . '-' . $action);
+/ * */
+
+		// Changing Timezone At Runtime. But this change does not seem to be taken by Carbon... Why?
 		Config::set('app.timezone', Configuration::get('TIMEZONE'));
 
 		// Changing The Default Language At Runtime

@@ -38,7 +38,7 @@
         {!! HTML::script('js/base.js'); !!}
         {!! HTML::script('js/common.js'); !!}
 
-        <script>
+        <script type="text/javascript">
         $(function(){
            $("#f_feedback").on('submit', function(e){
               e.preventDefault();

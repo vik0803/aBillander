@@ -45,6 +45,7 @@ php artisan migrate:refresh --seed
 // https://sheepy85.wordpress.com/2014/09/25/laravel-5-authentication-users-migration-seed/
 
  php artisan migrate
+ php artisan migrate:rollback
 
 Migrated: 2014_10_12_000000_create_users_table
 Migrated: 2014_10_12_100000_create_password_resets_table
@@ -66,6 +67,10 @@ php artisan db:seed --class=UsersTableSeeder
 php artisan db:seed --class=CurrenciesTableSeeder
 
 sudo php artisan db:seed --class=CompanyTableSeeder
+
+sudo php artisan db:seed --class=TaxesTableSeeder
+
+sudo php artisan db:seed --class=CategoriesTableSeeder
 
 
 
@@ -116,10 +121,34 @@ php artisan make:provider HelperServiceProvider
 ***********************************
 
 
-php artisan generate:resource contact --fields="name:string"
+php artisan make:migration create_contact_messages_table --create="contact_messages" 
+
+php artisan make:controller ContactMessagesController
+
+php artisan make:model ContactMessage
+
+
+***********************************
+
+Nested resources
+
+// https://www.youtube.com/watch?v=WYeygkhSk1w
+// For Admin pages: https://www.youtube.com/watch?v=YlP7Bw_Z8Nw
+
+Many to many
+
+// Also see: http://johnveldboom.com/posts/5/working-with-data-in-pivot-tables-using-laravel-4-eloquent-orm
+
+
+***********************************
+
+php artisan make:migration create_tags_table --create=tags
+
+***********************************
 
 
 ***********************************
 
 
+***********************************
 

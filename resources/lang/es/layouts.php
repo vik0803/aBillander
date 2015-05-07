@@ -37,6 +37,26 @@ return [
 
 	'Basic Data'     => 'Tablas Generales',
 	'Currencies' => 'Divisas',
+	'Payment Methods'     => 'Formas de Pago',
+	'Taxes'     => 'Impuestos',
+	'Product Categories'     => 'Categorías de Productos',
+	'Customer Groups'     => 'Grupos de Clientes',
+
+	'System'     => 'Sistema',
+	'Customers'     => 'Clientes',
+	'Sales Representatives'     => 'Agentes',
+	'Warehouses'     => 'Almacenes',
+	'Product Options'     => 'Opciones de Productos',
+	'Products'     => 'Productos',
+
+	'Warehouse'     => 'Almacén',
+	'Stock Movements'     => 'Movimientos de Almacén',
+	'Inventory Adjustments'     => 'Regularización de Almacén',
+
+	'Invoicing'     => 'Facturación',
+	'Customer Invoices'     => 'Facturas de Clientes',
+
+	'Reports'     => 'Informes',
 	''     => '',
 
 	'Login'     => 'Login',
@@ -73,6 +93,7 @@ return [
 	'View'     => 'Ver',
 	'Edit'     => 'Modificar',
 	'Save'     => 'Guardar',
+	'Save & Complete'     => 'Guardar y Completar',
 	'Cancel'     => 'Cancelar',
 	'Confirm'     => 'Confirmar',
 	'Delete'     => 'Eliminar',
@@ -85,7 +106,8 @@ return [
 	''     => '',
 	''     => '',
 
-	'-- Please, select--'     => '-- Seleccione--',
+	'-- Please, select --'     => '-- Seleccione --',
+	'-- Click to Select --'     => '-- Haga click para Seleccionar --',
 
 	'You are going to PERMANENTLY delete a record. Are you sure?' => 'Está a punto de borrar PERMANENTEMENTE un registro ¿Está seguro?',
 	'You are going to delete a record. Are you sure?' => 'Está a punto de borrar un registro ¿Está seguro?',

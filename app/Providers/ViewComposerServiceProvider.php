@@ -77,20 +77,28 @@ class ViewComposerServiceProvider extends ServiceProvider {
 		});
 
 		// Warehouses
-		view()->composer(array('configurationkeys.key_group_2', 'customer_invoices.create'), function($view) {
+		view()->composer(array('products.create', 'stock_movements.create', 'configurationkeys.key_group_2', 'customer_invoices.create'), function($view) {
 		    
-		    $view->with('warehouseList', \App\Warehouse::lists('name', 'id'));
+		    $whList = \App\Warehouse::with('address')->get();
+
+		    $list = [];
+		    foreach ($whList as $wh) {
+		    	$list[$wh->id] = $wh->address->alias;
+		    }
+
+		    $view->with('warehouseList', $list);
+		    // $view->with('warehouseList', \App\Warehouse::lists('name', 'id'));
 		    
 		});
 
 		// Taxes
-		view()->composer(array('customer_invoices.create', 'products.create'), function($view) {
+		view()->composer(array('customer_invoices.create', 'products.create', 'products.edit'), function($view) {
 		    
 		    $view->with('taxList', \App\Tax::orderby('percent', 'desc')->lists('name', 'id'));
 		    
 		});
 
-		view()->composer(array('customer_invoices.create'), function($view) {
+		view()->composer(array('products.create', 'products.edit', 'customer_invoices.create'), function($view) {
 
 		    $view->with('taxpercentList', \App\Tax::lists('percent', 'id'));
 		    
@@ -104,14 +112,14 @@ class ViewComposerServiceProvider extends ServiceProvider {
 		});
 
 		// Categories
-		view()->composer(array('products.create'), function($view) {
+		view()->composer(array('products.create', 'products._panel_main_data'), function($view) {
 		    
 		    $view->with('categoryList', \App\Category::orderby('name', 'asc')->lists('name', 'id'));
 		    
 		});
 
 		// Stock Movement Types
-		view()->composer(array('stock_movements.create'), function($view) {
+		view()->composer(array('stock_movements.index', 'stock_movements.create'), function($view) {
 		    
 		    $view->with('movement_typeList', \App\StockMovement::stockmovementList());
 		    

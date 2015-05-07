@@ -34,3 +34,32 @@ function echo_r($foo)
 		print_r($foo);
 		echo '</pre>';
 	}
+
+
+/**
+ * PHP Multi Dimensional Array Combinations.
+ *
+ * 
+ */
+function combos($data, &$all = array(), $group = array(), $val = null, $i = 0)
+{
+	if (isset($val))
+	{
+		array_push($group, $val);
+	}
+
+	if ($i >= count($data))
+	{
+		array_push($all, $group);
+	}
+	else
+	{
+		foreach ($data[$i] as $v)
+		{
+			combos($data, $all, $group, $v, $i + 1);
+		}
+	}
+
+	return $all;
+}
+

@@ -55,14 +55,14 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="form-group {{ $errors->has('firstname') ? 'has-error' : '' }}">
-                    {{ l('Administrator\' name') }}
+                    {{ l('Administrator\'s name') }}
                     {!! Form::text('address[firstname]', null, array('class' => 'form-control', 'id' => 'firstname')) !!}
                     {!! $errors->first('firstname', '<span class="help-block">:message</span>') !!}
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group {{ $errors->has('lastname') ? 'has-error' : '' }}">
-                    {{ l('Administrator\' surname') }}
+                    {{ l('Administrator\'s surname') }}
                     {!! Form::text('address[lastname]', null, array('class' => 'form-control', 'id' => 'lastname')) !!}
                     {!! $errors->first('lastname', '<span class="help-block">:message</span>') !!}
                 </div>
@@ -144,7 +144,7 @@
                     @if(isset($company))
                       {!! Form::text("currency[name]", null, array('class' => 'form-control', 'onfocus' => 'this.blur()')) !!}
                     @else
-                      {!! Form::select('currency_id', array('0' => '-- Seleccione--') + $currencyList, null, array('class' => 'form-control')) !!}
+                      {!! Form::select('currency_id', array('0' => l('-- Please, select --', [], 'layouts')) + $currencyList, null, array('class' => 'form-control')) !!}
                       {!! $errors->first('currency_id', '<span class="help-block">:message</span>') !!}
                     @endif
                  </div>

@@ -48,6 +48,6 @@ class Currency extends Model {
     
     public function customerinvoices()
     {
-        return $this->hasMany('Customerinvoice');
+        return $this->hasMany('App\Customerinvoice');
     }
 }

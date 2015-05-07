@@ -1,5 +1,6 @@
 /vendor
 /node_modules
+/database/backups
 .env
 commands.txt
 commands.txt~

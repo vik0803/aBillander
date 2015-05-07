@@ -48,13 +48,33 @@ Route::group(['middleware' => 'auth'], function()
 
 		Route::resource('languages', 'LanguagesController');
 
-		Route::resource('sequences', 'SequencesController');
+//		Route::resource('sequences', 'SequencesController');
 
 		Route::resource('users', 'UsersController');
 
-		Route::resource('templates', 'TemplatesController');
+//		Route::resource('templates', 'TemplatesController');
 
 		Route::resource('currencies', 'CurrenciesController');
+
+		Route::resource('taxes', 'TaxesController');
+
+		Route::resource('categories', 'CategoriesController');
+
+		Route::resource('products', 'ProductsController');
+		Route::post('products/{id}/combine', array('as' => 'products.combine', 'uses'=>'ProductsController@combine'));
+		Route::get('products/ajax/name_lookup'  , array('uses' => 'ProductsController@ajaxProductSearch', 
+														'as'   => 'products.ajax.nameLookup' ));
+		Route::post('products/ajax/options_lookup'  , array('uses' => 'ProductsController@ajaxProductOptionsSearch', 
+														'as'   => 'products.ajax.optionsLookup' ));
+		
+		Route::resource('optiongroups',         'OptionGroupsController');
+		Route::resource('optiongroups.options', 'OptionsController');;
+
+		Route::resource('combinations', 'CombinationsController');
+
+		Route::resource('warehouses', 'WarehousesController');
+
+		Route::resource('stockmovements', 'StockMovementsController');
 	});
 
 
@@ -63,3 +83,9 @@ Route::group(['middleware' => 'auth'], function()
 
 /* ********************************************************** */
 
+Route::get('test', function()
+{
+	echo \Carbon\Carbon::now();
+
+	echo Config::get('app.timezone'). \App\Configuration::get('TIMEZONE');
+});
